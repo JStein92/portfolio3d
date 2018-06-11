@@ -1,0 +1,41 @@
+<a-scene shadow cursor="rayOrigin: mouse">
+
+  <a-assets timeout="10000">
+    <img id="floor_texture" src="/assets/textures/floor.png">
+    <img id="sky_texture" src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Fsechelt.jpg?1490307995926" crossorigin="anonymouse">
+    <img id="box_texture" src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Ftexture.jpg?1490308149272" crossorigin="anonymouse">
+  </a-assets>
+
+  <a-entity>
+    <a-box id="bottom-plate" height="0.2" position="0 2 -3"
+           animation__opacity="property: material.opacity; dir: alternate; dur: 1000;
+                               loop: true; from: 1; to: 0"></a-box>
+
+     <a-box id="bottom-plate" height="0.2" position="0 5 -3" color="#FFF"
+     animation__color="property: color; dir: alternate; dur: 1000;
+                              easing: easeInSine; loop: true; to: #5F5"></a-box>
+
+
+    <a-entity camera position="0 1.6 0" look-controls></a-entity>
+    <a-sky src="#sky_texture" radius="30"></a-sky>
+
+    <a-plane material="shader: standard; repeat: 30 30; src: #floor_texture; normalMap: /assets/textures/floor_normal.png; roughnessMap: /assets/textures/floor_rough.png; normalTextureRepeat: 30 30; roughness: 1; metalness: .2" rotation="-90 0 0" height="100" width="100" position="0 0 0" shadow="cast: false; receive: true"></a-plane>
+
+    <a-box src="#box_texture" position="-2 0.5 -4" shadow="cast: true; receive: true"></a-box>
+    <!-- <a-sphere src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Fcubes.jpg?1490308405745" radius="0.5" position="0 0.5 -3" shadow="cast: true; receive: true"></a-sphere>
+    <a-cone src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Fcone.jpg?1490308535937" height="2" radius-top="0.1" position="0 1 -6" shadow="cast: true; receive: true"></a-cone>
+    <a-box src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Fdirt.jpg?1490308269805" position="2 0.5 -4" shadow="cast: true; receive: true"></a-box> -->
+
+    <a-light type="ambient" color="#666" intensity=".7"></a-light>
+    <a-entity light="type: point;
+                      castShadow: true;
+                      intensity: 0.3;"
+               position="2 5 1.5"></a-entity>
+
+   <a-entity light="type: directional;
+                     castShadow: true;
+                     intensity: .3;"
+              position="0 10 0"></a-entity>
+
+  </a-entity>
+</a-scene>
